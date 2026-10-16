@@ -17,5 +17,5 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	lose_hp()
-	pass # Replace with function body.
+	if body.has_method("lose_hp"):
+		body.lose_hp()

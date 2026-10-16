@@ -25,6 +25,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func lose_hp() -> void:
+	print("aaaaaaaaaaaaa")
 	hp -= 1
 	if hp <= 0:
 		$"..".emit_signal("game_over")
