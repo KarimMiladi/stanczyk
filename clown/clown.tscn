@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://4v7ytiuj83bm"]
+
+[ext_resource type="Script" uid="uid://djq0t06dshhd3" path="res://clown/clown.tscn.gd" id="1_n4pue"]
+[ext_resource type="Texture2D" uid="uid://61div0ibqw87" path="res://icon.svg" id="2_a60w2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qiij"]
+size = Vector2(116, 116)
+
+[node name="Clown" type="CharacterBody2D" unique_id=1534587545]
+script = ExtResource("1_n4pue")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1591868990]
+texture = ExtResource("2_a60w2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=381237818]
+shape = SubResource("RectangleShape2D_6qiij")

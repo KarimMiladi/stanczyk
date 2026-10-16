@@ -1,0 +1,12 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1792187302
+1888ebcd-6b29-4b21-afe2-5779faa9b764.jpg::CompressedTexture2D::6075647820695380208::1780015904::1792186084::1::::<><><>0<>0<>ca47a0bf202d6b067624ef52e7952858<>res://.godot/imported/1888ebcd-6b29-4b21-afe2-5779faa9b764.jpg-b29ea2252c42c92e5d37a88af07022f9.ctex::
+icon.svg::CompressedTexture2D::2229725553690035242::1792184476::1792184487::1::::<><><>0<>0<>0330b91f91bc14fed372d13e6a06d74a<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://clown/::1792186235
+clown.tscn::PackedScene::2080815212384591798::1792186209::0::1::::<><><>0<>0<><>::uid://b0obeelvfkwfb::::res://main/clown.gd<>uid://61div0ibqw87::::res://icon.svg
+clown.tscn.gd::GDScript::7825544903923239830::1792186235::0::1::::<>CharacterBody2D<><>0<>0<><>::
+::res://main/::1792187257
+main.tscn::PackedScene::6125722452704177520::1792187257::0::1::::<><><>0<>0<><>::res://main/clown.tscn<>uid://b0ixvlxs8lt8n::::res://tomato/tomato.tscn
+::res://tomato/::1792187169
+tomato.gd::GDScript::6881323588270563633::1792187169::0::1::::<>Area2D<><>0<>0<><>::
+tomato.tscn::PackedScene::4159091403331765667::1792187169::0::1::::<><><>0<>0<><>::uid://c5bmnnuxiauht::::res://tomato/tomato.gd<>uid://cstdbc6rm5ar5::::res://1888ebcd-6b29-4b21-afe2-5779faa9b764.jpg
