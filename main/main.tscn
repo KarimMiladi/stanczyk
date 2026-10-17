@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dts11xgyqj5pk" path="res://main/main.gd" id="1_xwkvk"]
 [ext_resource type="PackedScene" uid="uid://b0ixvlxs8lt8n" path="res://tomato/tomato.tscn" id="2_pjrb6"]
 [ext_resource type="PackedScene" uid="uid://4v7ytiuj83bm" path="res://clown/clown.tscn" id="2_xwkvk"]
+[ext_resource type="Script" uid="uid://bjdsqj3i0nwnf" path="res://main/tomato_spawner.gd" id="4_c651c"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pjrb6"]
 
@@ -15,10 +16,14 @@ position = Vector2(519, 561)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D" unique_id=1349211972]
 shape = SubResource("WorldBoundaryShape2D_pjrb6")
 
-[node name="Tomato" parent="." unique_id=250840552 instance=ExtResource("2_pjrb6")]
-position = Vector2(301, -23)
-
 [node name="Clown" parent="." unique_id=1534587545 instance=ExtResource("2_xwkvk")]
 position = Vector2(528, 342)
+
+[node name="tomato_spawner" type="Node2D" parent="." unique_id=305985549]
+script = ExtResource("4_c651c")
+tomato = ExtResource("2_pjrb6")
+
+[node name="Timer" type="Timer" parent="tomato_spawner" unique_id=36965072]
+autostart = true
 
 [connection signal="game_over" from="." to="." method="_on_game_over"]

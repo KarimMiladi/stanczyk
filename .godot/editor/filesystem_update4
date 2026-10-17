@@ -1,6 +1,6 @@
-res://main/main.tscn
-res://clown/clown.tscn
-res://tomato/tomato.tscn
 res://tomato/tomato.gd
+res://main/main.tscn
 res://clown/clown.tscn.gd
 res://main/main.gd
+res://tomato/tomato.tscn
+res://main/tomato_spawner.gd
