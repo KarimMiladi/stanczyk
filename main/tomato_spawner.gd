@@ -4,7 +4,7 @@ extends Node2D
 
 @onready var timer: Timer = $Timer
 
-var rows: int = 20
+@export var rows: int = 10
 var width: float = 850
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,9 +14,4 @@ func _on_timer_timeout():
 	if tomato:
 		var instance = tomato.instantiate()
 		add_child(instance)
-		instance.global_position = Vector2(randi_range(0,rows-1) * (width/rows)  + 200, -23)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+		instance.global_position = Vector2(randi_range(0,rows-1) * (width/rows)  + 100, -23)
