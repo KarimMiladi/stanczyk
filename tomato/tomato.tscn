@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c5bmnnuxiauht" path="res://tomato/tomato.gd" id="1_0nhfk"]
 [ext_resource type="Texture2D" uid="uid://cstdbc6rm5ar5" path="res://1888ebcd-6b29-4b21-afe2-5779faa9b764.jpg" id="1_fsa3j"]
+[ext_resource type="Texture2D" uid="uid://61div0ibqw87" path="res://icon.svg" id="3_8s40l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0nhfk"]
 size = Vector2(64, 94)
@@ -15,5 +16,10 @@ texture = ExtResource("1_fsa3j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=235823549]
 shape = SubResource("RectangleShape2D_0nhfk")
+
+[node name="Indicator" type="Sprite2D" parent="." unique_id=1017729203]
+self_modulate = Color(1, 1, 1, 0.50980395)
+scale = Vector2(0.5, 0.71875)
+texture = ExtResource("3_8s40l")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

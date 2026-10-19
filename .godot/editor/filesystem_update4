@@ -1,6 +1,4 @@
-res://main/main.tscn
-res://tomato_spawner/tomato_spawner.gd
+res://clown/clown.tscn
 res://clown/clown.tscn.gd
-res://main/main.gd
-res://tomato/tomato.gd
-res://main/tomato_spawner.gd
+res://dash_trail/dash_trail.tscn
+res://dash_trail/dash_trail.gd

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b1k8kgt51k41y"]
+
+[ext_resource type="Texture2D" uid="uid://tlubdjmryavr" path="res://backgroundmenu.jpg" id="1_oa53l"]
+
+[node name="MainMenu" type="Control" unique_id=2082662088]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1323507415]
+position = Vector2(575.5, 323)
+scale = Vector2(1.6041665, 0.9027778)
+texture = ExtResource("1_oa53l")
