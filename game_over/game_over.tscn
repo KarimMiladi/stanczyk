@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://dc864148fqvbs"]
+
+[ext_resource type="Script" uid="uid://cqo076km1pxbo" path="res://game_over/game_over.gd" id="1_5ly06"]
+[ext_resource type="Texture2D" uid="uid://y2gr2ael8o4g" path="res://gameover/gameover1.png" id="1_rlpkn"]
+[ext_resource type="Texture2D" uid="uid://xvimnh64ssy1" path="res://gameover/gameover2.png" id="2_j0535"]
+[ext_resource type="Texture2D" uid="uid://ddk1fmn20qup0" path="res://gameover/gameover3.png" id="3_300tv"]
+[ext_resource type="Texture2D" uid="uid://0ljajxxd34ca" path="res://gameover/gameover4.png" id="4_hgqxn"]
+[ext_resource type="Texture2D" uid="uid://cib4mlkuh4t8r" path="res://gameover/gameover5.png" id="5_5ly06"]
+[ext_resource type="Texture2D" uid="uid://emo4icie2rsk" path="res://gameover/gameover6.png" id="6_1l7rl"]
+[ext_resource type="Texture2D" uid="uid://bskt46whfnd58" path="res://gameover/gameover7.png" id="7_lu8m3"]
+[ext_resource type="Texture2D" uid="uid://bltwn385klmtx" path="res://gameover/gameover8.png" id="8_ph4sj"]
+[ext_resource type="Texture2D" uid="uid://cbxbdsqyu0oon" path="res://gameover/gameover9.png" id="9_sqqjm"]
+[ext_resource type="Texture2D" uid="uid://3dlkali76qjm" path="res://gameover/gameover10.png" id="10_qqs1n"]
+[ext_resource type="Texture2D" uid="uid://4iw4ymwxakk6" path="res://drive-download-20261020T171726Z-1-001/mainmenu1.png" id="11_hgqxn"]
+[ext_resource type="Texture2D" uid="uid://d2avjv5aupg4q" path="res://drive-download-20261020T171726Z-1-001/mainmenu2.png" id="12_5ly06"]
+[ext_resource type="Texture2D" uid="uid://dmanek3sc04et" path="res://mainmenu-20261020T153812Z-1-001/mainmenu/btns/youdiedtext.png" id="13_1l7rl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eljyk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rlpkn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_j0535")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_300tv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hgqxn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5ly06")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1l7rl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lu8m3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ph4sj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_sqqjm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qqs1n")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eljyk"]
+texture = ExtResource("11_hgqxn")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lu8m3"]
+texture = ExtResource("12_5ly06")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xqk0y"]
+texture = ExtResource("12_5ly06")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1gqpt"]
+texture = ExtResource("13_1l7rl")
+
+[node name="GameOver" type="Control" unique_id=610431037]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5ly06")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=774199252]
+position = Vector2(640, 360)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_eljyk")
+autoplay = "default"
+
+[node name="MainMenu" type="Button" parent="." unique_id=1087295127]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 414.0
+offset_right = 494.0
+offset_bottom = 514.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_eljyk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lu8m3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xqk0y")
+
+[node name="YouDied" type="Label" parent="." unique_id=1315770833]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 340.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_1gqpt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="." unique_id=900325122]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 337.0
+offset_right = 221.0
+offset_bottom = 363.0
+theme_override_font_sizes/font_size = 30
+
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]

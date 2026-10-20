@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://dwiv6glxr13qs"]
+
+[ext_resource type="Script" uid="uid://cn5diy4fw27ly" path="res://transition/transition.gd" id="1_csjfn"]
+[ext_resource type="Texture2D" uid="uid://xlsgi2u320rq" path="res://curtain_close-20261020T012333Z-1-001/curtain_close/close1.png" id="2_6uoxb"]
+[ext_resource type="Texture2D" uid="uid://cgwm84l5mi015" path="res://curtain_close-20261020T012333Z-1-001/curtain_close/close2.png" id="3_7pwb4"]
+[ext_resource type="Texture2D" uid="uid://hohryors1f5g" path="res://curtain_close-20261020T012333Z-1-001/curtain_close/close3.png" id="4_42bpp"]
+[ext_resource type="Texture2D" uid="uid://cr2i8fghk8yiv" path="res://curtain_close-20261020T012333Z-1-001/curtain_close/close4.png" id="5_xn7gy"]
+[ext_resource type="Texture2D" uid="uid://b8lkvncogffpk" path="res://curtain_close-20261020T012333Z-1-001/curtain_close/close5.png" id="6_oo1kq"]
+[ext_resource type="Texture2D" uid="uid://bj6afffx6upjt" path="res://curtain_close-20261020T012333Z-1-001/curtain_close/close6.png" id="7_v2h1n"]
+[ext_resource type="Texture2D" uid="uid://bo0axqmweqb0j" path="res://curtain_open-20261020T012400Z-1-001/curtain_open/open1.png" id="8_25uwp"]
+[ext_resource type="Texture2D" uid="uid://csqxussmcjyuq" path="res://curtain_open-20261020T012400Z-1-001/curtain_open/open2.png" id="9_3ph4x"]
+[ext_resource type="Texture2D" uid="uid://d08tu8qc4bq7w" path="res://curtain_open-20261020T012400Z-1-001/curtain_open/open3.png" id="10_k41r7"]
+[ext_resource type="Texture2D" uid="uid://dky135lc1mp0b" path="res://curtain_open-20261020T012400Z-1-001/curtain_open/open4.png" id="11_3rbcf"]
+[ext_resource type="Texture2D" uid="uid://bhkrjoabgj05f" path="res://curtain_open-20261020T012400Z-1-001/curtain_open/open5.png" id="12_skpwr"]
+[ext_resource type="Texture2D" uid="uid://dsf3xw4k1mw6f" path="res://curtain_open-20261020T012400Z-1-001/curtain_open/open6.png" id="13_cr5jd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1gqpt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6uoxb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7pwb4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_42bpp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xn7gy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_oo1kq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_v2h1n")
+}],
+"loop": 0,
+"name": &"close",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_25uwp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3ph4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_k41r7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3rbcf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_skpwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_cr5jd")
+}],
+"loop": 0,
+"name": &"open",
+"speed": 8.0
+}]
+
+[node name="Transition" type="CanvasLayer" unique_id=1947091537]
+script = ExtResource("1_csjfn")
+
+[node name="Curtain" type="AnimatedSprite2D" parent="." unique_id=463190818]
+position = Vector2(641.5, 379.00003)
+scale = Vector2(0.8235645, 0.8926674)
+sprite_frames = SubResource("SpriteFrames_1gqpt")
+animation = &"close"

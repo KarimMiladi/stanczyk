@@ -1,6 +1,77 @@
 [gd_scene format=3 uid="uid://b1k8kgt51k41y"]
 
-[ext_resource type="Texture2D" uid="uid://tlubdjmryavr" path="res://backgroundmenu.jpg" id="1_oa53l"]
+[ext_resource type="Script" uid="uid://ci6ctkp1duf5n" path="res://main_menu/main_menu.gd" id="1_n70vs"]
+[ext_resource type="Texture2D" uid="uid://bepoxa86c6j8c" path="res://mainmenu-20261020T153812Z-1-001/mainmenu/main1.png" id="1_og6xe"]
+[ext_resource type="Texture2D" uid="uid://btes8bjckg80w" path="res://mainmenu-20261020T153812Z-1-001/mainmenu/main2.png" id="2_mvfl2"]
+[ext_resource type="Texture2D" uid="uid://c2n42567ha3wy" path="res://mainmenu-20261020T153812Z-1-001/mainmenu/main3.png" id="3_qvn4f"]
+[ext_resource type="Texture2D" uid="uid://cilbcdaidtcx6" path="res://mainmenu-20261020T153812Z-1-001/mainmenu/main4.png" id="4_g1omr"]
+[ext_resource type="Texture2D" uid="uid://cpib4m138inn" path="res://mainmenu-20261020T153812Z-1-001/mainmenu/main5.png" id="5_kwfav"]
+[ext_resource type="Texture2D" uid="uid://c7l32uocb4jg2" path="res://mainmenu-20261020T153812Z-1-001/mainmenu/main6.png" id="6_n70vs"]
+[ext_resource type="Texture2D" uid="uid://c8ncq1vg1l7tv" path="res://mainmenu-20261020T153812Z-1-001/mainmenu/main7.png" id="7_tr6y3"]
+[ext_resource type="Texture2D" uid="uid://qkk822o2y2ts" path="res://mainmenu-20261020T153812Z-1-001/mainmenu/main8.png" id="8_vj6np"]
+[ext_resource type="Texture2D" uid="uid://cyl62ojqmawtw" path="res://mainmenu-20261020T153812Z-1-001/mainmenu/main9.png" id="9_iri28"]
+[ext_resource type="Texture2D" uid="uid://scuwltmhkk08" path="res://mainmenu-20261020T153812Z-1-001/mainmenu/main10.png" id="10_qq33v"]
+[ext_resource type="Texture2D" uid="uid://csafm5ygulo4x" path="res://mainmenu-20261020T153812Z-1-001/mainmenu/btns/startbutton1.png" id="11_mvfl2"]
+[ext_resource type="Texture2D" uid="uid://bnu20yn5cr7i6" path="res://mainmenu-20261020T153812Z-1-001/mainmenu/btns/startbutton2.png" id="12_qvn4f"]
+[ext_resource type="Texture2D" uid="uid://blenu3kl1yq27" path="res://mainmenu-20261020T153812Z-1-001/mainmenu/btns/quitbutton1.png" id="13_kwfav"]
+[ext_resource type="Texture2D" uid="uid://b6j22cqol65da" path="res://mainmenu-20261020T153812Z-1-001/mainmenu/btns/quitbutton2.png" id="14_n70vs"]
+[ext_resource type="Texture2D" uid="uid://cxpch1wyp3kks" path="res://stanczyk.png" id="16_tr6y3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1gqpt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_og6xe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mvfl2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qvn4f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_g1omr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kwfav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_n70vs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_tr6y3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vj6np")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_iri28")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qq33v")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_de6k4"]
+texture = ExtResource("11_mvfl2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bsumw"]
+texture = ExtResource("12_qvn4f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mvfl2"]
+texture = ExtResource("12_qvn4f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qvn4f"]
+texture = ExtResource("13_kwfav")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n70vs"]
+texture = ExtResource("14_n70vs")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g1omr"]
+texture = ExtResource("14_n70vs")
 
 [node name="MainMenu" type="Control" unique_id=2082662088]
 layout_mode = 3
@@ -9,8 +80,40 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_n70vs")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1323507415]
-position = Vector2(575.5, 323)
-scale = Vector2(1.6041665, 0.9027778)
-texture = ExtResource("1_oa53l")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=691024793]
+position = Vector2(640, 360)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_1gqpt")
+autoplay = "default"
+frame_progress = 0.045699455
+
+[node name="Start" type="Button" parent="." unique_id=1625618312]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 520.0
+offset_right = 259.0
+offset_bottom = 590.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_de6k4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bsumw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mvfl2")
+
+[node name="Quit" type="Button" parent="." unique_id=696514616]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 599.0
+offset_right = 250.0
+offset_bottom = 669.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_qvn4f")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_n70vs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_g1omr")
+icon_alignment = 1
+
+[node name="Title" type="Sprite2D" parent="." unique_id=301947289]
+position = Vector2(379, 387.99997)
+scale = Vector2(0.6946721, 1.2427531)
+texture = ExtResource("16_tr6y3")
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

@@ -8,6 +8,7 @@ var hp: int = 3
 var game_over: bool = false
 
 var is_dashing: bool = false
+var can_dash: bool = true
 var dash_direction: float = 0.0
 var dash_timer: float = 0.0
 
@@ -21,21 +22,37 @@ var trail_timer: float = 0.0
 @onready var sprite = $AnimatedSprite2D
 var last_facing: String = "front"
 
+@onready var tomato_spawner = $"../tomato_spawner"
+@export var idle_time_limit: float = 3.0
+var idle_timer: float = 0.0
+var last_position: Vector2
+
+var is_slipping: bool = false
+var slip_tween: Tween
+
 func _ready() -> void:
+	last_position = global_position
 	sprite.play("idlefront")
 
+func check_idle(delta: float) -> void:
+	if global_position.distance_to(last_position) > 5.0:
+		idle_timer = 0.0
+	else:
+		idle_timer += delta
+	last_position = global_position
+	if idle_timer >= idle_time_limit:
+		idle_timer = 0.0
+		tomato_spawner.spawn_tomato(global_position)
+
 func damage_flash() -> void:
+	if is_slipping:
+		return
 	var tween = create_tween()
 	sprite.modulate = Color.RED
-	tween.tween_property(
-		sprite,
-		"modulate",
-		Color.WHITE,
-		0.3
-	)
-
+	tween.tween_property(sprite, "modulate", Color.WHITE, 0.3)
 
 func _physics_process(delta: float) -> void:
+	check_idle(delta)
 	if game_over:
 		return
 	# Reduce dash cooldown
@@ -46,7 +63,7 @@ func _physics_process(delta: float) -> void:
 	# Start dash only if cooldown has finished
 	if Input.is_action_just_pressed("dash") \
 	and not is_dashing \
-	and dash_cooldown_timer <= 0:
+	and dash_cooldown_timer <= 0 and can_dash:
 		if direction != Vector2.ZERO:
 			dash_direction = direction.x
 			velocity = direction * DASH_SPEED
@@ -77,31 +94,29 @@ func _physics_process(delta: float) -> void:
 			sprite.play("runright")
 		elif direction.y < 0:
 			last_facing = "back"
-			sprite.play("idleback")
+			sprite.play("runback")
 		elif direction.y > 0:
 			last_facing = "front"
-			sprite.play("idlefront")
+			sprite.play("runfront")
 		else:
 			match last_facing:
 				"left":
-					sprite.play("runleft")
-					sprite.pause()
+					sprite.play("idlefront")
 				"right":
-					sprite.play("runright")
-					sprite.pause()
+					sprite.play("idlefront")
 				"back":
 					sprite.play("idleback")
-				_:
+				"front":
 					sprite.play("idlefront")
 	move_and_slide()
-
 
 func spawn_dash_trail() -> void:
 	var trail = DASH_TRAIL.instantiate()
 	get_tree().current_scene.add_child(trail)
 	trail.global_position = sprite.global_position
 	var trail_sprite: AnimatedSprite2D = trail.get_node("AnimatedSprite2D")
-	trail_sprite.sprite_frames = sprite.sprite_frames
+	trail_sprite.play(sprite.animation)
+	trail_sprite.frame = sprite.frame
 	trail_sprite.rotation = sprite.global_rotation
 	trail_sprite.scale = sprite.global_scale
 
@@ -111,8 +126,8 @@ func lose_hp() -> void:
 	hp -= 1
 	var main = $"../.."
 	# Your existing damage flash can go here
+	main.play_heart_break(hp)
 	damage_flash()
-	main.update_hearts(hp)
 	if hp <= 0:
 		game_over = true
 		if main.has_method("game_over"):
@@ -120,3 +135,22 @@ func lose_hp() -> void:
 		return
 	if main.has_method("shake_world"):
 		main.shake_world(8.0, 0.3)
+
+func slip() -> void:
+	if is_slipping:
+		return
+	is_slipping = true
+	speed = 150.0
+	can_dash = false
+	slip_tween = create_tween()
+	slip_tween.tween_property(
+			sprite,
+		"modulate",
+		Color.GREEN,
+		5.0
+	)
+	await slip_tween.finished
+	sprite.modulate = Color.WHITE
+	speed = 300.0
+	can_dash = true
+	is_slipping = false

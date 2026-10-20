@@ -1,4 +1,14 @@
-res://clown/clown.tscn
+res://crowd_popup/crowd_popup.tscn
+res://main/main.tscn
+res://game_over/game_over.tscn
+res://main/main.gd
+res://GameData.gd
+res://game_over/game_over.gd
 res://clown/clown.tscn.gd
-res://dash_trail/dash_trail.tscn
-res://dash_trail/dash_trail.gd
+res://transition/transition.tscn
+res://clown/clown.tscn
+res://tomato/tomato.tscn
+res://banana/banana.tscn
+res://main/tomato_spawner.gd
+res://banana/banana.gd
+res://crowd_popup/crowd_popup.gd

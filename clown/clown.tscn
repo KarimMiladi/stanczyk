@@ -14,9 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://dj4w67yfa4qn8" path="res://clown/idlefront/south_idle5.png" id="12_34iy3"]
 [ext_resource type="Texture2D" uid="uid://bkkf4mg8ndtgi" path="res://clown/idlefront/south_idle6.png" id="13_lilbh"]
 [ext_resource type="Texture2D" uid="uid://d10ws2stbh2g2" path="res://clown/runleft/running_left1.png" id="14_27gck"]
+[ext_resource type="Texture2D" uid="uid://dkuqjun0ub0g6" path="res://clown/runback/run_back1.png" id="14_nqath"]
+[ext_resource type="Texture2D" uid="uid://pabhlujaap67" path="res://clown/runback/run_back2.png" id="15_4ck2k"]
 [ext_resource type="Texture2D" uid="uid://ffxud64xm4mo" path="res://clown/runleft/running_left2.png" id="15_bk425"]
 [ext_resource type="Texture2D" uid="uid://blaygaxy1oppr" path="res://clown/runleft/running_left3.png" id="16_0ug4m"]
+[ext_resource type="Texture2D" uid="uid://bh4tetrtueagl" path="res://clown/runfront/running_front1.png" id="16_pgy2c"]
 [ext_resource type="Texture2D" uid="uid://dfcm40qx0g65m" path="res://clown/runleft/running_left4.png" id="17_3sgx4"]
+[ext_resource type="Texture2D" uid="uid://52psbvdptt0w" path="res://clown/runfront/running_front2.png" id="17_imq3g"]
 [ext_resource type="Texture2D" uid="uid://ddxim28qe5vu3" path="res://clown/runleft/running_left5.png" id="18_fhxm4"]
 [ext_resource type="Texture2D" uid="uid://qmoeqhpgtvk2" path="res://clown/runleft/running_left6.png" id="19_kji1o"]
 [ext_resource type="Texture2D" uid="uid://b656nncxfknji" path="res://clown/runleft/running_left7.png" id="20_57lmh"]
@@ -78,15 +82,27 @@ animations = [{
 "name": &"idlefront",
 "speed": 10.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_nqath")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_4ck2k")
+}],
 "loop": 1,
 "name": &"runback",
-"speed": 10.0
+"speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_pgy2c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_imq3g")
+}],
 "loop": 1,
 "name": &"runfront",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -148,16 +164,29 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qiij"]
-size = Vector2(68, 106)
+size = Vector2(102, 110)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gqpt"]
+size = Vector2(102, 35)
 
 [node name="Clown" type="CharacterBody2D" unique_id=1534587545]
+collision_mask = 10
 script = ExtResource("1_n4pue")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1364742034]
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.98979586, 0.9897958)
 sprite_frames = SubResource("SpriteFrames_1gqpt")
-animation = &"runright"
+animation = &"idlefront"
+frame_progress = 0.1651854
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=381237818]
-position = Vector2(0, 6)
+position = Vector2(0, 47)
 shape = SubResource("RectangleShape2D_6qiij")
+
+[node name="Legs" type="Area2D" parent="." unique_id=2145767812]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Legs" unique_id=1664206914]
+position = Vector2(0, 85.5)
+shape = SubResource("RectangleShape2D_1gqpt")

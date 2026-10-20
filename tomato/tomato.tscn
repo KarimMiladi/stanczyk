@@ -1,25 +1,83 @@
 [gd_scene format=3 uid="uid://b0ixvlxs8lt8n"]
 
 [ext_resource type="Script" uid="uid://c5bmnnuxiauht" path="res://tomato/tomato.gd" id="1_0nhfk"]
-[ext_resource type="Texture2D" uid="uid://cstdbc6rm5ar5" path="res://1888ebcd-6b29-4b21-afe2-5779faa9b764.jpg" id="1_fsa3j"]
-[ext_resource type="Texture2D" uid="uid://61div0ibqw87" path="res://icon.svg" id="3_8s40l"]
+[ext_resource type="Texture2D" uid="uid://dgk8ghudjyvhi" path="res://danger.png" id="2_rvf7o"]
+[ext_resource type="Texture2D" uid="uid://b4dg261eongve" path="res://tomato/tomato1_prop/tomato1_1.png" id="3_vasp1"]
+[ext_resource type="Texture2D" uid="uid://d1m6dryev44ck" path="res://tomato/tomato1_prop/tomato1_2.png" id="4_05emn"]
+[ext_resource type="Texture2D" uid="uid://wstect1rv8qw" path="res://tomato/tomato1_prop/tomato1_3.png" id="5_sbji8"]
+[ext_resource type="Texture2D" uid="uid://bvvn7emmpebe7" path="res://tomato/tomato1_prop/tomato1_4.png" id="6_56kxx"]
+[ext_resource type="Texture2D" uid="uid://cpf73vopocx81" path="res://tomato/tomato1_prop/tomato1_5.png" id="7_pkrea"]
+[ext_resource type="Texture2D" uid="uid://bwy8y6tajkq6c" path="res://tomato/tomato1_prop/tomato1_6.png" id="8_yh36d"]
+[ext_resource type="Texture2D" uid="uid://cyqt47s6qwcca" path="res://tomato/tomato1_prop/tomato1_7.png" id="9_mysp6"]
+[ext_resource type="Texture2D" uid="uid://88jkli1uf8gx" path="res://tomato/tomato1_prop/tomato1_8.png" id="10_udgen"]
+[ext_resource type="Texture2D" uid="uid://c5yg4o5s7cxht" path="res://tomato/tomato1_prop/tomato1_9.png" id="11_8dp4d"]
+[ext_resource type="Texture2D" uid="uid://03w50tjpydom" path="res://tomato/tomato1_prop/tomato1_10.png" id="12_05emn"]
+[ext_resource type="Texture2D" uid="uid://dytpmpfw5n0xf" path="res://tomato/tomato1_prop/tomato1_11.png" id="13_sbji8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0nhfk"]
-size = Vector2(64, 94)
+[sub_resource type="SpriteFrames" id="SpriteFrames_1gqpt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vasp1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_05emn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sbji8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_56kxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pkrea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yh36d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mysp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_udgen")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8dp4d")
+}],
+"loop": 1,
+"name": &"falling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_05emn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_sbji8")
+}],
+"loop": 0,
+"name": &"impact",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eljyk"]
+radius = 39.051247
 
 [node name="Tomato" type="Area2D" unique_id=250840552]
+collision_layer = 2
 script = ExtResource("1_0nhfk")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=661598082]
-scale = Vector2(0.103333324, 0.11749999)
-texture = ExtResource("1_fsa3j")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=751314066]
+scale = Vector2(0.5, 0.568)
+sprite_frames = SubResource("SpriteFrames_1gqpt")
+animation = &"impact"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=235823549]
-shape = SubResource("RectangleShape2D_0nhfk")
+shape = SubResource("CircleShape2D_eljyk")
 
 [node name="Indicator" type="Sprite2D" parent="." unique_id=1017729203]
 self_modulate = Color(1, 1, 1, 0.50980395)
-scale = Vector2(0.5, 0.71875)
-texture = ExtResource("3_8s40l")
+scale = Vector2(4.888, 6)
+texture = ExtResource("2_rvf7o")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

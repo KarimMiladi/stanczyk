@@ -11,9 +11,25 @@ config_version=5
 [application]
 
 config/name="Stanczyk"
-run/main_scene="uid://ctjl0voarldho"
+run/main_scene="uid://b1k8kgt51k41y"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://3t53yhno7lav"
+
+[autoload]
+
+Transition="*uid://dwiv6glxr13qs"
+GameData="*uid://bm5pex6yvrg8f"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/mode=3
+window/stretch/mode="canvas_items"
+
+[gui]
+
+theme/custom="uid://bwr3umrcpmw75"
 
 [input]
 
@@ -47,10 +63,24 @@ dash={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_1="clown"
+2d_render/layer_2="tomato"
+2d_render/layer_3="banana"
+2d_render/layer_4="walls"
+2d_render/layer_5="legs"
+2d_physics/layer_1="clown"
+2d_physics/layer_2="tomato"
+2d_physics/layer_3="banana"
+2d_physics/layer_4="walls"
+2d_physics/layer_5="legs"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
